@@ -16,7 +16,7 @@
 
 Reading this document top-to-bottom will give you a basic understanding of what is going on in this repository.
 
-Feel free to use this repository as an example if you think that this *modus operandis* might fit your usecase.
+Feel free to use this repository as a guideline if you think that it might fit your usecase.
 
 *To myself*: go to the [first clone guide](#first-clone-guide) if you're in a hurry.
 
