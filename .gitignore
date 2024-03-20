@@ -1,0 +1,7 @@
+*
+!.config/kitty/
+!.config/nvim/
+!.gitconfig
+!.gitignore
+!.bashrc
+!README.md
