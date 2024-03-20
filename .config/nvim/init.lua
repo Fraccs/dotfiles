@@ -11,6 +11,8 @@ vim.g.maplocalleader = ' '
 
 -- Make line numbers default
 vim.opt.number = true
+-- You can also add relative line numbers, for help with jumping.
+--  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -58,7 +60,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 25
+vim.opt.scrolloff = 30
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -634,11 +636,7 @@ require('lazy').setup {
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- Load the colorscheme here
-      -- Lua
-      require('onedark').setup {
-        style = 'dark',
-      }
-      require('onedark').load()
+      vim.cmd.colorscheme 'onedark'
     end,
   },
 
@@ -670,11 +668,11 @@ require('lazy').setup {
       statusline.setup()
 
       -- You can configure sections in the statusline by overriding their
-      -- default behavior. For example, here we disable the section for
-      -- cursor information because line numbers are already enabled
+      -- default behavior. For example, here we set the section for
+      -- cursor location to LINE:COLUMN
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
-        return ''
+        return '%2l:%-2v'
       end
 
       -- ... and there is more!
