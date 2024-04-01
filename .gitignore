@@ -4,4 +4,5 @@
 !.gitconfig
 !.gitignore
 !.bashrc
+!.tmux.conf
 !README.md
