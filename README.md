@@ -4,13 +4,18 @@
 
 ## Table of contents
 
-1. [Intro](#intro)
-2. [Why](#why)
+<!--toc:start-->
+- [dotfiles](#dotfiles)
+  - [Table of contents](#table-of-contents)
+  - [Intro](#intro)
+  - [Why](#why)
     - [Why this repo](#why-this-repo)
     - [Why doing it this way](#why-doing-it-this-way)
-3. [Some docs](#some-docs)
+  - [Some docs](#some-docs)
     - [The complexity of versioning dotfiles](#the-complexity-of-versioning-dotfiles)
+      - [Gitignore sucks](#gitignore-sucks)
     - [First clone guide](#first-clone-guide)
+<!--toc:end-->
 
 ## Intro
 
@@ -38,11 +43,26 @@ Versioning configuration files with git adds some complexity, this is because do
 Since the home directory contains many files that don't have to be versioned a `.gitignore` with a negation pattern is used to "whitelist" the files to track:
 
 ```sh
-* # <- Ignore all files in the home directory by default
-!.config/nvim/ # <- Track .config/nvim/ (all files and subdirectories in it)
+* # <- Ignore everything
+!.config # <- I want to version stuff inside `.config`
+!.config/nvim # <- I want to version stuff inside `.config/nvim`
+!.config/nvim/** # <- Track .config/nvim/** (all files and subdirectories in it)
 !.gitignore # <- Track .gitignore
 ...
 ```
+
+#### Gitignore sucks
+
+Tracking every file in every subdirectory of `.config/nvim/` can only be accomplished with the following negations:
+
+```sh
+*
+!.config
+!.config/nvim
+!.config/nvim/**
+```
+
+Each of the 3 negations is needed because git in order to reach files inside `.config/nvim/`, must be able to reach `.config/nvim` first, and in order to reach `.config/nvim`, it must be able to reach `.config` first.
 
 ### First clone guide
 

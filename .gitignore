@@ -1,6 +1,9 @@
 *
-!.config/kitty/
-!.config/nvim/
+!.config
+!.config/kitty
+!.config/kitty/**
+!.config/nvim
+!.config/nvim/**
 !.gitconfig
 !.gitignore
 !.bashrc
