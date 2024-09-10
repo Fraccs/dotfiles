@@ -4,5 +4,6 @@
 	signingKey = E398628CCA76AFDDB66E55408BE41159F658D398
 [core]
 	editor = nvim
+	hooksPath = .githooks/
 [commit]
 	gpgSign = true

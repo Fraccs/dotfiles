@@ -5,6 +5,8 @@
 !.config/kitty/kitty.laptop.conf
 !.config/nvim
 !.config/nvim/**
+!.githooks
+!.githooks/post-checkout
 !.gitconfig
 !.gitignore
 !.bashrc
