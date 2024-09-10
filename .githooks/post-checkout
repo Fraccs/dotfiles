@@ -1,12 +1,13 @@
 #!/bin/bash
 
 HOSTNAME=$(hostname)
-KITTY_CONFIG_PATH="$HOME/.config/kitty"
+
+cd .config/kitty
 
 if [ "$HOSTNAME" == "laptop" ]; then
-    ln -s "$KITTY_CONFIG_PATH/kitty.laptop.conf" "$KITTY_CONFIG_PATH/kitty.conf"
+    ln -s "kitty.laptop.conf" "kitty.conf"
 elif [ "$HOSTNAME" == "desktop" ]; then
-    ln -s "$KITTY_CONFIG_PATH/kitty.desktop.conf" "$KITTY_CONFIG_PATH/kitty.conf"
+    ln -s "kitty.desktop.conf" "kitty.conf"
 else
     echo "Unknown hostname: $HOSTNAME. Exiting."
     exit 1
