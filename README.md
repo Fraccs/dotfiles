@@ -13,7 +13,8 @@
     - [Why doing it this way](#why-doing-it-this-way)
   - [Some docs](#some-docs)
     - [The complexity of versioning dotfiles](#the-complexity-of-versioning-dotfiles)
-      - [Gitignore sucks](#gitignore-sucks)
+      - [Gitignore black magic](#gitignore-black-magic)
+      - [Different devices with different needs](#different-devices-with-different-needs)
     - [First clone guide](#first-clone-guide)
 <!--toc:end-->
 
@@ -51,7 +52,7 @@ Since the home directory contains many files that don't have to be versioned a `
 ...
 ```
 
-#### Gitignore sucks
+#### Gitignore black magic
 
 Tracking every file in every subdirectory of `.config/nvim/` can only be accomplished with the following negations:
 
@@ -63,6 +64,24 @@ Tracking every file in every subdirectory of `.config/nvim/` can only be accompl
 ```
 
 Each of the 3 negations is needed because git in order to reach files inside `.config/nvim/`, must be able to reach `.config/nvim` first, and in order to reach `.config/nvim`, it must be able to reach `.config` first.
+
+#### Different devices with different needs
+
+> What if you had multiple devices where you'd like to use your dotfiles, but those devices (*because of their nature*) had slightly different needs from one another?
+
+My current situation: my two main devices are a Huawei laptop (let's call it `laptop` from now on), and a tower desktop (from now on `desktop`). They both are single-boot Debian 12 installations and I'd like to use my dotfiles on both of them.
+
+*Well... "What's the problem?"*
+
+Problems start arising when, for instance, your devices have very different screen resolutions (like mine).
+
+The simplest way to explain this is the `kitty.conf` file: on `desktop` kitty works completely fine with `font_size 11.0` (same as the system's font size) whereas on `laptop` the minimum `font_size` to have an enjoyable experience is `15.0`.
+
+*You see where I'm going with this...*
+
+Some config files can be somewhat different based on what system they are being used on. Of course I had to find a convenient way to make this all work without betraying the philosophy of this repository: **one clone and you're done**.
+
+The solution I came up with leverages symlinks and git hooks, to be precise the `post-checkout` hook. Instead of a single `kitty.conf` file, I created `kitty.desktop.conf` and `kitty.laptop.conf`, then, when the repository is cloned, the `post-checkout` hook runs a script that creates the correct symlink (named `kitty.conf`) that points to either `kitty.desktop.conf` or `kitty.laptop.conf` depending on the `hostname` of the machine where the clone happened.
 
 ### First clone guide
 
