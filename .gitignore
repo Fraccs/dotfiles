@@ -1,7 +1,8 @@
 *
 !.config
 !.config/kitty
-!.config/kitty/**
+!.config/kitty/kitty.desktop.conf
+!.config/kitty/kitty.laptop.conf
 !.config/nvim
 !.config/nvim/**
 !.gitconfig
