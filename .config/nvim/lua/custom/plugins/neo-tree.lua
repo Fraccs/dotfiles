@@ -20,6 +20,5 @@ return {
         position = 'float'
       }
     }
-  end,
+  end
 }
-
