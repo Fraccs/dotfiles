@@ -141,6 +141,5 @@ From now on, changes to the configuration will have to be committed to this repo
 | [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim) | FZF sorter for telescope |
 | [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim) | Sets `vim.ui.select` to telescope |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Highly extensible fuzzy finder for neovim |
-| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | Pretty formatting for `TODO`, `FIX`, `WARNING`... comments |
 | [vim-sleuth](https://github.com/tpope/vim-sleuth) | Heuristic adjustment of `shiftwidth`, `expandtab` and more, based on the current file or files of the same type in the current and parent directories |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Shows the available neovim keybindings in a popup, as you type them |
