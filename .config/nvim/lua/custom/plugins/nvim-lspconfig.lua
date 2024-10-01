@@ -8,7 +8,7 @@ return {
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { 'j-hui/fidget.nvim', opts = {} },
+    { 'j-hui/fidget.nvim', opts = {} }
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -19,7 +19,6 @@ return {
         end
 
         -- Jump to the definition of the word under your cursor.
-        --  This is where a variable was first declared, or where a function is defined, etc.
         --  To jump back, press <C-T>.
         map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
@@ -31,8 +30,7 @@ return {
         map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 
         -- Jump to the type of the word under your cursor.
-        --  Useful when you're not sure what type a variable is and you want to see
-        --  the definition of its *type*, not where it was *defined*.
+        --  Useful when you're not sure what type a variable is and you want to see the definition of its *type*
         map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
 
         -- Fuzzy find all the symbols in your current document
@@ -43,13 +41,11 @@ return {
 
         -- Rename variables
         map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
         -- Opens a popup that displays documentation about the word under your cursor
         --  See `:help K` for why this keymap
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
-
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
         -- The following two autocommands are used to highlight references of the
@@ -62,15 +58,15 @@ return {
         if client and client.server_capabilities.documentHighlightProvider then
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             buffer = event.buf,
-            callback = vim.lsp.buf.document_highlight,
+            callback = vim.lsp.buf.document_highlight
           })
 
           vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
             buffer = event.buf,
-            callback = vim.lsp.buf.clear_references,
+            callback = vim.lsp.buf.clear_references
           })
         end
-      end,
+      end
     })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -85,12 +81,15 @@ return {
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
       -- clangd = {},
-      -- gopls = {},
+      gopls = {
+        cmd = { 'gopls' },
+        filetypes = { 'go', 'gomod' }
+      },
       -- pyright = {},
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --
-      -- Some languages (like typescript) have entire language plugins that can be useful:
+      -- Some languages () have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
@@ -110,19 +109,22 @@ return {
               -- for your neovim configuration.
               library = {
                 '${3rd}/luv/library',
-                unpack(vim.api.nvim_get_runtime_file('', true)),
-              },
+                unpack(vim.api.nvim_get_runtime_file('', true))
+              }
               -- If lua_ls is really slow on your computer, you can try this instead:
               -- library = { vim.env.VIMRUNTIME },
             },
             completion = {
-              callSnippet = 'Replace',
+              callSnippet = 'Replace'
             },
-            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- diagnostics = { disable = { 'missing-fields' } },
-          },
-        },
-      },
+            diagnostics = {
+              disable = {
+                'missing-fields'
+              }
+            }
+          }
+        }
+      }
     }
 
     require('mason').setup()
@@ -132,7 +134,7 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
 
     vim.list_extend(ensure_installed, {
-      'stylua',
+      'stylua'
     })
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -148,8 +150,8 @@ return {
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
 
           require('lspconfig')[server_name].setup(server)
-        end,
-      },
+        end
+      }
     }
   end
 }
