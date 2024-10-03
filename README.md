@@ -142,4 +142,5 @@ From now on, changes to the configuration will have to be committed to this repo
 | [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim) | Sets `vim.ui.select` to telescope |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Highly extensible fuzzy finder for neovim |
 | [vim-sleuth](https://github.com/tpope/vim-sleuth) | Heuristic adjustment of `shiftwidth`, `expandtab` and more, based on the current file or files of the same type in the current and parent directories |
+| [vimtex](https://github.com/lervag/vimtex) | Neovim filetype for plugin for LaTeX |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Shows the available neovim keybindings in a popup, as you type them |
