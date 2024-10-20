@@ -1,5 +1,8 @@
 *
 !.config
+!.config/k9s
+!.config/k9s/aliases.yaml
+!.config/k9s/config.yaml
 !.config/kitty
 !.config/kitty/kitty.desktop.conf
 !.config/kitty/kitty.laptop.conf
