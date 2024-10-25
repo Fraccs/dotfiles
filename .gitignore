@@ -1,5 +1,8 @@
 *
+!.bashrc
 !.config
+!.config/i3
+!.config/i3/config
 !.config/k9s
 !.config/k9s/aliases.yaml
 !.config/k9s/config.yaml
@@ -8,10 +11,12 @@
 !.config/kitty/kitty.laptop.conf
 !.config/nvim
 !.config/nvim/**
+!.dmrc
 !.githooks
 !.githooks/post-checkout
 !.gitconfig
 !.gitignore
-!.bashrc
+!.install.sh
 !.tmux.conf
+!.xinitrc
 !README.md
