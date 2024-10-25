@@ -150,7 +150,7 @@ From now on, changes to the configuration will have to be committed to this repo
 
 | Mode | Keymap | Description |
 | ---- | ------ | ----------- |
-| `n` | `<C-f>` | Open Neotree filesystem browser |
+| `n` | `<C-f>` | Open Neotree file explorer |
 | `n` | `[d` | Go to previous diagnostic message |
 | `n` | `]d` | Go to next diagnostic massage |
 | `n` | `<leader>e` | Show diagnostic error messages |
