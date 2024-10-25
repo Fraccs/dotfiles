@@ -18,6 +18,7 @@
     - [First clone guide](#first-clone-guide)
     - [Neovim configuration](#neovim-configuration)
       - [Neovim plugins](#neovim-plugins)
+      - [Neovim keymaps](#neovim-keymaps)
 <!--toc:end-->
 
 ## Intro
@@ -144,3 +145,51 @@ From now on, changes to the configuration will have to be committed to this repo
 | [vim-sleuth](https://github.com/tpope/vim-sleuth) | Heuristic adjustment of `shiftwidth`, `expandtab` and more, based on the current file or files of the same type in the current and parent directories |
 | [vimtex](https://github.com/lervag/vimtex) | Neovim filetype for plugin for LaTeX |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Shows the available neovim keybindings in a popup, as you type them |
+
+#### Neovim keymaps
+
+| Mode | Keymap | Description |
+| ---- | ------ | ----------- |
+| `n` | `<C-f>` | Open Neotree filesystem browser |
+| `n` | `[d` | Go to previous diagnostic message |
+| `n` | `]d` | Go to next diagnostic massage |
+| `n` | `<leader>e` | Show diagnostic error messages |
+| `n` | `<leader>q` | Open diagnostic quickfix list |
+| `t` | `<Esc><Esc>` or `<C-\\><C-n>` | Exit terminal mode |
+| `n` | `<left>` | Disables left arrow key in normal mode |
+| `n` | `<right>` | Disables right arrow key in normal mode |
+| `n` | `<up>` | Disables up arrow key in normal mode |
+| `n` | `<down>` | Disables down arrow key in normal mode |
+| `n` | `<C-h>` or `<C-w><C-h>`| Move focus to the left window |
+| `n` | `<C-l>` or `<C-w><C-l>`| Move focus to the right window |
+| `n` | `<C-j>` or `<C-w><C-j>`| Move focus to the lower window |
+| `n` | `<C-k>` or `<C-w><C-k>` | Move focus to the upper window |
+| `i` | `<C-n>` | Select the next item in "select-style" menus |
+| `i` | `<C-p>` | Select the previous item in "select-style" menus |
+| `i` | `<C-y>` | Confirm a selection in "select-style" menus |
+| `i` | `<C-Space>` | Manually trigger a completion for nvim-cmp |
+| `i,s?` | `<C-l>` | |
+| `i,s?` | `<C-h>` | |
+| `n` | `gd` | Goto definition |
+| `n` | `gr` | Goto references |
+| `n` | `gI` | Goto implementation |
+| `n` | `<leader>D` | Type definition  |
+| `n` | `<leader>ds` | Document symbols |
+| `n` | `<leader>ws` | Workspace symbols |
+| `n` | `<leader>rn` | Rename symbol |
+| `n` | `<leader>ca` | Code action |
+| `n` | `K` | Hover documentation |
+| `n` | `gD` | Goto declaration |
+| `n` | `<leader>sh` | Search help |
+| `n` | `<leader>sk` | Search keymaps |
+| `n` | `<leader>sf` | Search files |
+| `n` | `<leader>ss` | Search select telescope |
+| `n` | `<leader>sw` | Search current word |
+| `n` | `<leader>sg` | Search by grep |
+| `n` | `<leader>sd` | Search diagnostics |
+| `n` | `<leader>sr` | Search resume |
+| `n` | `<leader>s.` | Search recent files |
+| `n` | `<leader><leader>` | Find existing buffers |
+| `n` | `<leader>/` | Current buffer fuzzy find |
+| `n` | `<leader>s/` | Open files fuzzy find |
+| `n` | `<leader>sn` | Search neovim config files |
