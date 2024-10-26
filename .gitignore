@@ -18,6 +18,9 @@
 !.config/nvim/**
 !.config/picom
 !.config/picom/picom.conf
+!.config/polybar
+!.config/polybar/config.laptop.ini
+!.config/polybar/launch.laptop.sh
 !.config/wallpapers
 !.config/wallpapers/**
 !.dmrc
