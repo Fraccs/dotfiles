@@ -4,7 +4,8 @@
 !.config/btop
 !.config/btop/btop.conf
 !.config/i3
-!.config/i3/config
+!.config/i3/config.desktop.conf
+!.config/i3/config.laptop.conf
 !.config/k9s
 !.config/k9s/aliases.yaml
 !.config/k9s/config.yaml
