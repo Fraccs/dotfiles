@@ -4,5 +4,12 @@
 	signingKey = E398628CCA76AFDDB66E55408BE41159F658D398
 [core]
 	editor = nvim
+	pager = delta
 [commit]
 	gpgSign = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictstyle = diff3
