@@ -8,6 +8,7 @@
 - [dotfiles](#dotfiles)
   - [Table of contents](#table-of-contents)
   - [Intro](#intro)
+  - [Installation](#installation)
   - [Why](#why)
     - [Why this repo](#why-this-repo)
     - [Why doing it this way](#why-doing-it-this-way)
@@ -15,7 +16,6 @@
     - [The complexity of versioning dotfiles](#the-complexity-of-versioning-dotfiles)
       - [Gitignore black magic](#gitignore-black-magic)
       - [Different devices with different needs](#different-devices-with-different-needs)
-    - [First clone guide](#first-clone-guide)
     - [Neovim configuration](#neovim-configuration)
       - [Neovim plugins](#neovim-plugins)
       - [Neovim keymaps](#neovim-keymaps)
@@ -27,7 +27,17 @@ Reading this document top-to-bottom will give you a basic understanding of what 
 
 Feel free to use this repository as a guideline if you think that it might fit your usecase.
 
-*To myself*: go to the [first clone guide](#first-clone-guide) if you're in a hurry.
+## Installation
+
+Run the following command to clone this repository:
+
+```sh
+curl -sfL https://raw.githubusercontent.com/fraccs/dotfiles/refs/heads/main/.install.sh | sh -
+```
+
+The home directory is now a git repository and it is possible to run git commands in it, but **only the files/directories listed in the `.gitignore` will be versioned**.
+
+From now on, changes to the configuration will have to be committed to this repository.
 
 ## Why
 
@@ -85,22 +95,6 @@ The simplest way to explain this is the `kitty.conf` file: on `desktop` kitty wo
 Some config files can be somewhat different based on what system they are being used on. Of course I had to find a convenient way to make this all work without betraying the philosophy of this repository: **one clone and you're done**.
 
 The solution I came up with leverages symlinks and git hooks, to be precise the `post-checkout` hook. Instead of a single `kitty.conf` file, I created `kitty.desktop.conf` and `kitty.laptop.conf`, then, when the repository is cloned, the `post-checkout` hook runs a script that creates the correct symlink (named `kitty.conf`) that points to either `kitty.desktop.conf` or `kitty.laptop.conf` depending on the `hostname` of the machine where the clone happened.
-
-### First clone guide
-
-Run the following commands to clone this repository:
-
-```sh
-pwd # /home/<username>
-git clone git@github.com:/Fraccs/dotfiles.git
-mv dotfiles/.git . # Move the `.git` directory into the home directory
-rm -rf dotfiles # Remove the repo (not needed anymore)
-git restore . # Restore deleted files (since we moved the .git directory), this will "create" README.md, .gitignore, .config/... inside the home directory
-```
-
-The home directory is now a git repository and it is possible to run git commands in it, but **only the files/directories listed in the `.gitignore` will be versioned**.
-
-From now on, changes to the configuration will have to be committed to this repository.
 
 ### Neovim configuration
 
