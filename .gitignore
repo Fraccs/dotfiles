@@ -19,7 +19,9 @@
 !.config/picom
 !.config/picom/picom.conf
 !.config/polybar
+!.config/polybar/config.desktop.ini
 !.config/polybar/config.laptop.ini
+!.config/polybar/launch.desktop.sh
 !.config/polybar/launch.laptop.sh
 !.config/wallpapers
 !.config/wallpapers/**
