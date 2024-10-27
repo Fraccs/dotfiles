@@ -80,5 +80,16 @@ return {
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
+
+    vim.cmd [[
+      highlight TelescopeNormal guibg=#00000000 guifg=#ffffff
+      highlight TelescopeBorder guibg=#00000000 guifg=#ffffff
+      highlight TelescopePromptNormal guibg=#00000000 guifg=#ffffff
+      highlight TelescopePromptBorder guibg=#00000000 guifg=#808080
+      highlight TelescopeResultsNormal guibg=#00000000 guifg=#ffffff
+      highlight TelescopeResultsBorder guibg=#00000000 guifg=#808080
+      highlight TelescopePreviewNormal guibg=#00000000 guifg=#ffffff
+      highlight TelescopePreviewBorder guibg=#00000000 guifg=#808080
+    ]]
   end
 }
