@@ -16,6 +16,8 @@
     - [The complexity of versioning dotfiles](#the-complexity-of-versioning-dotfiles)
       - [Gitignore black magic](#gitignore-black-magic)
       - [Different devices with different needs](#different-devices-with-different-needs)
+    - [i3 configuration](#i3-configuration)
+      - [i3 keymaps](#i3-keymaps)
     - [Neovim configuration](#neovim-configuration)
       - [Neovim plugins](#neovim-plugins)
       - [Neovim keymaps](#neovim-keymaps)
@@ -96,11 +98,45 @@ Some config files can be somewhat different based on what system they are being 
 
 The solution I came up with leverages symlinks and git hooks, to be precise the `post-checkout` hook. Instead of a single `kitty.conf` file, I created `kitty.desktop.conf` and `kitty.laptop.conf`, then, when the repository is cloned, the `post-checkout` hook runs a script that creates the correct symlink (named `kitty.conf`) that points to either `kitty.desktop.conf` or `kitty.laptop.conf` depending on the `hostname` of the machine where the clone happened.
 
+### i3 configuration
+
+#### i3 keymaps
+
+| Mode | Keymap | Description |
+| ---- | ------ | ----------- |
+| `default` | `$mod+Return` | Open an i3-sensible-terminal |
+| `default` | `$mod+q` | Kill the focused container |
+| `default` | `$mod+d` | Open rofi in drun mode (shows only applications that provide a .desktop entry) |
+| `default` | `$mod+w` | Open rofi in window mode (shows open windows) |
+| `default` | `$mod+h` | Change focus to the left |
+| `default` | `$mod+j` | Change focus down |
+| `default` | `$mod+k` | Change focus up |
+| `default` | `$mod+l` | Change focus to the right |
+| `default` | `$mod+Shift+h` | Move the focused window left |
+| `default` | `$mod+Shift+j` | Move the focused window down |
+| `default` | `$mod+Shift+k` | Move the focused window up |
+| `default` | `$mod+Shift+l` | Move the focused window right |
+| `default` | `$mod+u` | Split in horizontal orientation |
+| `default` | `$mod+v` | Split in vertical orientation |
+| `default` | `$mod+f` | Enter fullscreen mode for the focused container |
+| `default` | `$mod+e` | Toggle split layout |
+| `default` | `$mod+a` | Focus the parent container |
+| `default` | `$mod+b` | Focus the child container |
+| `default` | `$mod+<workspace_number>` | Switch to `<workspace_number>` |
+| `default` | `$mod+Shift+<workspace_number>` | Move focused container to `<workspace_number>` |
+| `default` | `$mod+Shift+c` | Reload i3 |
+| `default` | `$mod+Shift+r` | Restart i3 |
+| `default` | `$mod+Shift+e` | Exit i3 (logs you out of your X session) |
+| `default` | `$mod+r` | Enter `resize` mode |
+| `resize` | `h` | Shrink width of 10 px/10 ppt |
+| `resize` | `j` | Grow height of 10px/10 ppt |
+| `resize` | `k` | Shrink height of 10px/10 ppt |
+| `resize` | `l` | Grow width of 10px/10 ppt |
+| `resize` | `Return` | Enter `default` mode |
+| `resize` | `Escape` | Enter `default` mode |
+| `resize` | `$mod+r` | Enter `default` mode |
+
 ### Neovim configuration
-
-- Neovim version: `v0.9.5 (self-compiled)`
-
-- Build type: `RelWithDebInfo`
 
 #### Neovim plugins
 
