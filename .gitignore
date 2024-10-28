@@ -33,6 +33,9 @@
 !.gitconfig
 !.gitignore
 !.install.sh
+!.minikube
+!.minikube/config
+!.minikube/config/config.json
 !.ssh
 !.ssh/config
 !.tmux.conf
