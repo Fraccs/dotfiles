@@ -5,6 +5,7 @@ case $- in
 esac
 
 export OSH="/home/fraccs/.oh-my-bash"
+export PATH="$PATH:/home/fraccs/.local/bin"
 export UPDATE_OSH_DAYS=13 # Automatic update check
 
 OSH_THEME="powerline"
