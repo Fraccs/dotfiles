@@ -6,6 +6,7 @@ esac
 
 export OSH="/home/fraccs/.oh-my-bash"
 export PATH="$PATH:/home/fraccs/.local/bin"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export UPDATE_OSH_DAYS=13 # Automatic update check
 
 OSH_THEME="powerline"
