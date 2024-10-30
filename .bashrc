@@ -38,5 +38,6 @@ plugins=(
 )
 
 source "$OSH"/oh-my-bash.sh
+source "/usr/share/nvm/init-nvm.sh"
 
 eval "$(zoxide init bash)"
