@@ -1,3 +1,4 @@
+---
 k9s:
   liveViewAutoRefresh: true
   screenDumpDir: /home/fraccs/.local/state/k9s/screen-dumps
@@ -13,6 +14,7 @@ k9s:
     reactive: false
     noIcons: false
     defaultsToFullScreen: false
+    skin: theme
   skipLatestRevCheck: false
   disablePodCounting: false
   shellPod:
