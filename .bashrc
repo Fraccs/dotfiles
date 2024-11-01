@@ -4,8 +4,8 @@ case $- in
     *) return;;
 esac
 
-export OSH="/home/fraccs/.oh-my-bash"
-export PATH="$PATH:/home/fraccs/.local/bin"
+export OSH="$HOME/.oh-my-bash"
+export PATH="$PATH:$HOME/.local/bin"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export UPDATE_OSH_DAYS=13 # Automatic update check
 
