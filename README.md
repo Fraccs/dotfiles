@@ -2,6 +2,9 @@
 
 > ⚙️ My personal configuration files.
 
+> [!WARNING]
+> Work in progress! Expect changes and things not working as they should!
+
 ## Table of contents
 
 <!--toc:start-->
