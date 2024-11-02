@@ -5,25 +5,49 @@ DOTFILES_TMP_DIR="$HOME/dotfiles"
 
 SEPARATOR="----------------------------------------"
 
+REQUIRED_COMMANDS=(
+    fd
+    git
+)
+
+check_command() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+echo "Welcome to the 'fraccs/dotfiles' install script."
 echo $SEPARATOR
 
 echo "Detected hostname: $HOSTNAME"
 echo $SEPARATOR
 
+echo "Checking if required commands are installed..."
+
+for cmd in "${REQUIRED_COMMANDS[@]}"; do
+    if check_command "$cmd"; then
+        echo "$cmd is installed."
+    else
+        echo "$cmd is not installed."
+        echo "Please install $cmd and then run this script again."
+        exit 1
+    fi
+done
+
+echo $SEPARATOR
+
 if [[ "$HOSTNAME" == "laptop" || "$HOSTNAME" == "desktop" ]]; then
-    echo "Continuing with the installation for $HOSTNAME..."
+    echo "Continuing with the installation for $HOSTNAME."
 else
-    read -p "Would you like to use the desktop or laptop configuration? (<desktop|laptop>): " config_choice
-
-    while [[ "$config_choice" != "desktop" && "$config_choice" != "laptop" ]]; do
-        echo "Invalid choice. Please enter 'desktop' or 'laptop'."
-        read -p "Would you like to use the desktop or laptop configuration? (<desktop|laptop>): " config_choice
-    done
-
-    echo "You have chosen the $config_choice configuration."
+    if [[ "$DOTFILES_TARGET" == "laptop" || "$DOTFILES_TARGET" == "desktop" ]]; then
+        echo "The DOTFILES_TARGET environment variable is set to $DOTFILES_TARGET."
+        echo "Continuing with the installation for $DOTFILES_TARGET."
+    else
+        echo "Please set the 'DOTFILES_TARGET' environment variable to either 'laptop' or 'desktop'."
+        echo "Example: 'curl -sfL https://raw.githubusercontent.com/fraccs/dotfiles/refs/heads/main/.install.sh | DOTFILES_TARGET=laptop sh'."
+        exit 1
+    fi
 fi
 
-# TODO: replace *.<desktop|laptop>.* files with the correct ones (based on config_choice) and symlink properly
+echo $SEPARATOR
 
 if [ -d "$HOME/.oh-my-bash" ]; then
     echo "Oh My Bash is already installed."
@@ -41,7 +65,7 @@ if [ -d "$HOME/.git" ]; then
     echo "Skipping dotfiles repository clone."
     echo $SEPARATOR
 else
-    echo "Cloning dotfiles repository..."
+    echo "Cloning 'fraccs/dotfiles'..."
     git clone "$DOTFILES_REPO" "$DOTFILES_TMP_DIR"
     echo "Dotfiles repository cloned to $DOTFILES_TMP_DIR."
 
@@ -57,6 +81,22 @@ else
     echo $SEPARATOR
 fi
 
-# source ~/.bashrc
+if [[ "$HOSTNAME" == "desktop" || "$DOTFILES_TARGET" == "desktop" ]]; then
+    symlink_targets=$(fd '^[^.]+\.desktop(\.[^.]+)?$')
+    symlink_machine="desktop"
+else
+    symlink_targets=$(fd '^[^.]+\.laptop(\.[^.]+)?$')
+    symlink_machine="laptop"
+fi
 
-echo "Setup completed!"
+readarray -t symlink_targets <<< "$symlink_targets"
+
+for symlink_target in "${symlink_targets[@]}"; do
+    symlink=$(echo "$symlink_target" | sed 's/\.'"$symlink_machine"'//')
+    echo "Symlinking $symlink_target to $symlink."
+    ln -s "$symlink_target" "$symlink"
+done
+
+echo $SEPARATOR
+
+echo "Setup completed, please run 'source ~/.bashrc'."
