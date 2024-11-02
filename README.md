@@ -34,15 +34,22 @@ Feel free to use this repository as a guideline if you think that it might fit y
 
 ## Installation
 
-Run the following command to clone this repository:
+> [!NOTE]
+> If installing dotfiles on a machine that has an hostname different from `laptop` or `desktop` you **MUST** specify the preferred configuration by setting the `DOTFILES_TARGET` environment variable to either `laptop` or `desktop`.
+
+Run the following command to install the dotfiles on `laptop` or `desktop`:
 
 ```sh
-curl -sfL https://raw.githubusercontent.com/fraccs/dotfiles/refs/heads/main/.install.sh | sh -
+curl -sfL https://raw.githubusercontent.com/fraccs/dotfiles/refs/heads/main/.install.sh | sh
+```
+
+Run the following command to install the dotfiles on a different machine (*make sure to set the `DOTFILES_TARGET` environment variable properly*):
+
+```sh
+curl -sfL https://raw.githubusercontent.com/fraccs/dotfiles/refs/heads/main/.install.sh | [DOTFILES_TARGET=<laptop|desktop>] sh
 ```
 
 The home directory is now a git repository and it is possible to run git commands in it, but **only the files/directories listed in the `.gitignore` will be versioned**.
-
-From now on, changes to the configuration will have to be committed to this repository.
 
 ## Why
 
@@ -87,7 +94,7 @@ Each of the 3 negations is needed because git in order to reach files inside `.c
 
 > What if you had multiple devices where you'd like to use your dotfiles, but those devices (*because of their nature*) had slightly different needs from one another?
 
-My current situation: my two main devices are a Huawei laptop (let's call it `laptop` from now on), and a tower desktop (from now on `desktop`). They both are single-boot Debian 12 installations and I'd like to use my dotfiles on both of them.
+My current situation: my two main devices are a Huawei laptop (let's call it `laptop` from now on), and a tower desktop (from now on `desktop`). They both are single-boot ArchLinux installations and I'd like to use my dotfiles on both of them.
 
 *Well... "What's the problem?"*
 
@@ -99,7 +106,7 @@ The simplest way to explain this is the `kitty.conf` file: on `desktop` kitty wo
 
 Some config files can be somewhat different based on what system they are being used on. Of course I had to find a convenient way to make this all work without betraying the philosophy of this repository: **one clone and you're done**.
 
-The solution I came up with leverages symlinks and git hooks, to be precise the `post-checkout` hook. Instead of a single `kitty.conf` file, I created `kitty.desktop.conf` and `kitty.laptop.conf`, then, when the repository is cloned, the `post-checkout` hook runs a script that creates the correct symlink (named `kitty.conf`) that points to either `kitty.desktop.conf` or `kitty.laptop.conf` depending on the `hostname` of the machine where the clone happened.
+The solution I came up with leverages symlinks, to be precise the [install script](https://github.com/Fraccs/dotfiles/blob/main/.install.sh) symlinks the config files that follow the format `<name>.<desktop|laptop>[.<extension>]` to `<name>[.<extension>]` depending on the hostname of the machine where the clone happened.
 
 ### i3 configuration
 
