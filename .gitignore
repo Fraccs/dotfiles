@@ -44,4 +44,5 @@
 !.ssh/config
 !.tmux.conf
 !.xinitrc
+!.Xresources
 !README.md

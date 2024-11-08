@@ -2,7 +2,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 set $mod Mod1
 
-font pango:Meslo LGM Nerd Font 12
+font pango:Meslo LGM Nerd Font 11
 
 for_window [class="^.*"] border pixel 3
 
