@@ -28,7 +28,8 @@
 !.config/polybar/launch.desktop.sh
 !.config/polybar/launch.laptop.sh
 !.config/rofi
-!.config/rofi/config.rasi
+!.config/rofi/config.desktop.rasi
+!.config/rofi/config.laptop.rasi
 !.config/wallpapers
 !.config/wallpapers/**
 !.dmrc
