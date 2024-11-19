@@ -21,6 +21,8 @@ gaps outer 8
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpapers/wallpaper-tux-1920x1080-128x128.jpg
 exec_always --no-startup-id picom -b
 
+exec --no-startup-id "setxkbmap -layout us,it -option 'grp:win_space_toggle'"
+
 exec --no-startup-id xrandr --output HDMI-0 --primary --mode 1920x1080 --rate 144.00 --output DP-4 --mode 1920x1080 --rate 143.85 --right-of HDMI-0 &
 
 # Start XDG autostart .desktop files using dex. See also
