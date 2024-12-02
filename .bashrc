@@ -20,6 +20,7 @@ completions=(
   git
   kubectl
   minikube
+  helm
   pip
   pip3
   podman
