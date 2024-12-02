@@ -7,6 +7,7 @@ esac
 export EDITOR="nvim"
 export OSH="$HOME/.oh-my-bash"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export UPDATE_OSH_DAYS=13 # Automatic update check
 
