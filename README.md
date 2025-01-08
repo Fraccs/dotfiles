@@ -138,6 +138,10 @@ The solution I came up with leverages symlinks, to be precise the [install scrip
 | `default` | `$mod+Shift+r` | Restart i3 |
 | `default` | `$mod+Shift+e` | Exit i3 (logs you out of your X session) |
 | `default` | `$mod+r` | Enter `resize` mode |
+| `default` | `Print` | Take a screenshot of every monitor |
+| `default` | `Shift+Print` | Take a screenshot of the selected area |
+| `default` | `Ctrl+Print` | Take a screenshot of every monitor (saved to clipboard) |
+| `default` | `Ctrl+Shift+Print` | Take a screenshot of the selected area (saved to clipboard) |
 | `resize` | `h` | Shrink width of 10 px/10 ppt |
 | `resize` | `j` | Grow height of 10px/10 ppt |
 | `resize` | `k` | Shrink height of 10px/10 ppt |
