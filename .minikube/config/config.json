@@ -1,5 +1,7 @@
 {
     "container-runtime": "containerd",
+    "cpus": 2,
     "driver": "podman",
+    "memory": 4096,
     "rootless": true
 }
