@@ -23,7 +23,7 @@ exec_always --no-startup-id picom -b
 
 exec --no-startup-id "setxkbmap -layout us,it -option 'grp:win_space_toggle'"
 
-exec --no-startup-id xrandr --output DP-0 --primary --mode 1920x1080 --rate 165.00 --output DP-2 --mode 1920x1080 --rate 165.00 --right-of DP-0 --output DP-4 --mode 1920x1080 --rate 165.00 --left-of DP-0 &
+exec --no-startup-id xrandr --output DP-1 --primary --mode 1920x1080 --rate 165.00 --output DP-2 --mode 1920x1080 --rate 165.00 --right-of DP-1 --output DP-3 --mode 1920x1080 --rate 165.00 --left-of DP-1 &
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -96,9 +96,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-
-workspace 1 output HDMI-0
-workspace 2 output DP-4
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
