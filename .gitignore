@@ -5,6 +5,8 @@
 !.config/btop/btop.conf
 !.config/distrobox
 !.config/distrobox/distrobox.conf
+!.config/gtk-3.0
+!.config/gtk-3.0/settings.ini
 !.config/i3
 !.config/i3/config.desktop
 !.config/i3/config.laptop
