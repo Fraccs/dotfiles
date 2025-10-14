@@ -1,0 +1,21 @@
+[window]
+opacity = 0.0
+
+[font]
+size = 10.0
+
+[font.normal]
+family = "MesloLGM Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "MesloLGM Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "MesloLGM Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "MesloLGM Nerd Font"
+style = "Bold Italic"
